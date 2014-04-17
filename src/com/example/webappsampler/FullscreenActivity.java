@@ -42,10 +42,10 @@ public class FullscreenActivity extends Activity {
 		setContentView(R.layout.activity_fullscreen);
 		
 		mLaunchButton = (Button) findViewById(R.id.launchButton);
-		mLaunchButton.setOnClickListener(launchClickListener);
+		mLaunchButton.setOnClickListener(mLaunchClickListener);
 		
 		mCloseButton = (Button) findViewById(R.id.closeButton);
-		mCloseButton.setOnClickListener(closeClickListener);
+		mCloseButton.setOnClickListener(mCloseClickListener);
 		
 		mSendButton = (Button) findViewById(R.id.sendButton);
 		mSendButton.setOnClickListener(sendClickListener);
@@ -96,7 +96,7 @@ public class FullscreenActivity extends Activity {
 		mStatusTextView.setText(newMessage);
 	}
 	
-	View.OnClickListener launchClickListener = new View.OnClickListener() {
+	private View.OnClickListener mLaunchClickListener = new View.OnClickListener() {
 		
 		@Override
 		public void onClick(View v) {
@@ -108,7 +108,7 @@ public class FullscreenActivity extends Activity {
 		}
 	};
 	
-	View.OnClickListener closeClickListener = new View.OnClickListener() {
+	private View.OnClickListener mCloseClickListener = new View.OnClickListener() {
 		
 		@Override
 		public void onClick(View v) {
@@ -120,7 +120,7 @@ public class FullscreenActivity extends Activity {
 		}
 	};
 	
-	View.OnClickListener sendClickListener = new View.OnClickListener() {
+	private View.OnClickListener sendClickListener = new View.OnClickListener() {
 		
 		@Override
 		public void onClick(View v) {
@@ -146,7 +146,7 @@ public class FullscreenActivity extends Activity {
 		}
 	};
 	
-	AdapterView.OnItemClickListener mDeviceSelectListener = new AdapterView.OnItemClickListener() {
+	private AdapterView.OnItemClickListener mDeviceSelectListener = new AdapterView.OnItemClickListener() {
 		public void onItemClick(android.widget.AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 			mStatusTextView.setText("");
 			
@@ -157,7 +157,7 @@ public class FullscreenActivity extends Activity {
 		};
 	};
 	
-	ConnectableDeviceListener mDeviceListener = new ConnectableDeviceListener() {
+	private ConnectableDeviceListener mDeviceListener = new ConnectableDeviceListener() {
 		
 		@Override
 		public void onPairingRequired(ConnectableDevice device,
